@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400" prefWidth="600" style="-fx-background-color: #131E3F;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.interfaz_agenda.HelloController">
+   <children>
+
+      <Label alignment="CENTER" layoutX="157.0" layoutY="57.0" prefHeight="51.0" prefWidth="286.0" text="SELECCIONE BASE DE DATOS" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font name="Inter Semi Bold Italic" size="20.0" />
+         </font>
+      </Label>
+
+      <Pane layoutX="76.0" layoutY="128.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 15; -fx-background-radius: 15;">
+         <children>
+            <ImageView fitHeight="131.0" fitWidth="148.0" layoutX="26.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@mongo.png" />
+               </image>
+            </ImageView>
+            <Label alignment="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="38.0" prefWidth="178.0" text="MONGO ATLAS" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="Inter Semi Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="11.0" layoutY="149.0" prefHeight="38.0" prefWidth="178.0" text="Rápido, flexible y en la nube" textAlignment="CENTER" textFill="#575757" wrapText="true">
+               <font>
+                  <Font name="Inter Semi Bold" size="10.0" />
+               </font>
+
+            </Label>
+         </children></Pane>
+      <Pane layoutX="343.0" layoutY="128.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 15; -fx-background-radius: 15;">
+         <children>
+             <ImageView fitHeight="98.0" fitWidth="107.0" layoutX="51.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
+                 <image>
+                     <Image url="@sql_logo.png" />
+                 </image>
+             </ImageView>
+            <Label alignment="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="38.0" prefWidth="178.0" text="MYSQL" textAlignment="CENTER" wrapText="true">
+               <font>
+                  <Font name="Inter Semi Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label alignment="CENTER" layoutX="11.0" layoutY="151.0" prefHeight="38.0" prefWidth="178.0" text="Ideal para datos organizados y complejos" textAlignment="CENTER" textFill="#575757" wrapText="true">
+               <font>
+                  <Font name="Inter Semi Bold" size="10.0" />
+               </font>
+            </Label>
+         </children></Pane>
+   </children>
+</Pane>
