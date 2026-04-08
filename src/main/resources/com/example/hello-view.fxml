@@ -7,49 +7,48 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400" prefWidth="600" style="-fx-background-color: #131E3F;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.interfaz_agenda.HelloController">
    <children>
-
       <Label alignment="CENTER" layoutX="157.0" layoutY="57.0" prefHeight="51.0" prefWidth="286.0" text="SELECCIONE BASE DE DATOS" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font name="Inter Semi Bold Italic" size="20.0" />
          </font>
       </Label>
-
-      <Pane layoutX="76.0" layoutY="128.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 15; -fx-background-radius: 15;">
+      <Pane layoutX="333.0" layoutY="113.0" prefHeight="215.0" prefWidth="210.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 15; -fx-background-radius: 15;">
          <children>
-            <ImageView fitHeight="131.0" fitWidth="148.0" layoutX="26.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@mongo.png" />
-               </image>
-            </ImageView>
-            <Label alignment="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="38.0" prefWidth="178.0" text="MONGO ATLAS" textAlignment="CENTER" wrapText="true">
-               <font>
-                  <Font name="Inter Semi Bold" size="20.0" />
-               </font>
-            </Label>
-            <Label alignment="CENTER" layoutX="11.0" layoutY="149.0" prefHeight="38.0" prefWidth="178.0" text="Rápido, flexible y en la nube" textAlignment="CENTER" textFill="#575757" wrapText="true">
-               <font>
-                  <Font name="Inter Semi Bold" size="10.0" />
-               </font>
-
-            </Label>
-         </children></Pane>
-      <Pane layoutX="343.0" layoutY="128.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #FFFFFF; -fx-border-radius: 15; -fx-background-radius: 15;">
-         <children>
-             <ImageView fitHeight="98.0" fitWidth="107.0" layoutX="51.0" layoutY="51.0" pickOnBounds="true" preserveRatio="true">
+             <ImageView fitHeight="98.0" fitWidth="107.0" layoutX="51.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
                  <image>
                      <Image url="@sql_logo.png" />
                  </image>
              </ImageView>
-            <Label alignment="CENTER" layoutX="11.0" layoutY="14.0" prefHeight="38.0" prefWidth="178.0" text="MYSQL" textAlignment="CENTER" wrapText="true">
+
+            <Label alignment="CENTER" layoutX="16.0" prefHeight="38.0" prefWidth="178.0" text="MYSQL" textAlignment="CENTER" wrapText="true">
                <font>
                   <Font name="Inter Semi Bold" size="20.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="11.0" layoutY="151.0" prefHeight="38.0" prefWidth="178.0" text="Ideal para datos organizados y complejos" textAlignment="CENTER" textFill="#575757" wrapText="true">
+            <Label alignment="CENTER" layoutX="11.0" layoutY="128.0" prefHeight="38.0" prefWidth="178.0" text="Ideal para datos organizados y complejos" textAlignment="CENTER" textFill="#575757" wrapText="true">
                <font>
                   <Font name="Inter Semi Bold" size="10.0" />
                </font>
             </Label>
+            <Button fx:id="vistaSQL" layoutX="78.0" layoutY="180.0" mnemonicParsing="false" onAction="#redirigirSQL" prefHeight="25.0" prefWidth="76.0" text="IR SQL" />
          </children></Pane>
+      <Button layoutX="55.0" layoutY="116.0" mnemonicParsing="false" prefHeight="208.0" prefWidth="230.0" style="-fx-background-color: #FFFFFF;" />
+      <ImageView fitHeight="131.0" fitWidth="148.0" layoutX="100.0" layoutY="151.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@mongo.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="85.0" layoutY="116.0" prefHeight="38.0" prefWidth="178.0" text="MONGO ATLAS" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font name="Inter Semi Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="81.0" layoutY="249.0" prefHeight="38.0" prefWidth="178.0" text="Rápido, flexible y en la nube" textAlignment="CENTER" textFill="#575757" wrapText="true">
+         <font>
+                  <Font name="Inter Semi Bold" size="10.0" />
+         </font>
+
+      </Label>
+       <Button id="mongo" fx:id="vistaMongo" layoutX="132.0" layoutY="287.0" mnemonicParsing="false" onAction="#redirigirMongo" prefHeight="25.0" prefWidth="76.0" text="IR MONGO" />
    </children>
 </Pane>
