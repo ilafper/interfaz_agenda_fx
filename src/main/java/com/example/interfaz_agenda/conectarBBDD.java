@@ -12,7 +12,6 @@ public class conectarBBDD {
     // url mongo
     private static final String mongo_get_clientes = "http://localhost:3000/api/clientes"; // Cambia a tu endpoint
 
-
     public static String getClientesMongo() {
         try {
             HttpRequest request = HttpRequest.newBuilder().uri(new URI(mongo_get_clientes)).GET().build();

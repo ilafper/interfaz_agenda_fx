@@ -50,5 +50,6 @@
 
       </Label>
        <Button id="mongo" fx:id="vistaMongo" layoutX="132.0" layoutY="287.0" mnemonicParsing="false" onAction="#redirigirMongo" prefHeight="25.0" prefWidth="76.0" text="IR MONGO" />
+      <Button layoutX="100.0" layoutY="70.0" mnemonicParsing="false" text="jkkj" />
    </children>
 </Pane>
