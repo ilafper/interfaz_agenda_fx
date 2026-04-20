@@ -5,6 +5,8 @@ module com.example.interfaz_agenda {
     requires org.mongodb.driver.sync.client;
     requires org.mongodb.driver.core;
     requires java.net.http;
+    requires com.google.gson;
+    requires org.kordamp.ikonli.javafx;
 
 
     opens com.example.interfaz_agenda to javafx.fxml;

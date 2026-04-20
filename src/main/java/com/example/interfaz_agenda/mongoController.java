@@ -1,27 +1,113 @@
 package com.example.interfaz_agenda;
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.client.MongoCollection;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 import javafx.fxml.Initializable;
-import javafx.scene.layout.Pane;
+import javafx.geometry.Pos;
+import javafx.scene.control.Label;
+import javafx.scene.layout.*;
 
 import javafx.fxml.FXML;
-
-import javax.swing.text.Document;
+import javafx.scene.control.Button;
+import javafx.geometry.Insets;
+import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
+import org.kordamp.ikonli.javafx.FontIcon;
 public class mongoController implements Initializable {
      @FXML
-     private Pane todosClientes;
+     private FlowPane todosClientes;
     //String datosCliente= conectarBBDD.getClientesMongo();
 
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        // Se ejecuta al cargar la vista
-        String datos = conectarBBDD.getClientesMongo();
 
-        for (int i = 0; i < datos.length(); i++) {
-            System.out.println(datos.mensaj);
+
+
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        String json = conectarBBDD.getClientesMongo();
+
+        JsonObject obj = JsonParser.parseString(json).getAsJsonObject();
+        JsonArray lista = obj.getAsJsonArray("lista_clientes");
+
+        todosClientes.setHgap(15);
+        todosClientes.setVgap(15);
+
+        for (int i = 0; i < lista.size(); i++) {
+
+            JsonObject cliente = lista.get(i).getAsJsonObject();
+
+
+            HBox tarjeta = new HBox();
+            // añadir clase a
+            tarjeta.getStyleClass().add("tarjeta");
+            HBox nombreApe= new HBox();
+            tarjeta.setAlignment(Pos.CENTER_LEFT);
+            tarjeta.setSpacing(15);
+            tarjeta.setPrefWidth(680);
+
+            tarjeta.setStyle(
+                            "-fx-padding: 12;" +
+                            "-fx-background-color: white;" +
+                            "-fx-border-color: #131E3F;" +
+                            "-fx-border-radius: 12;" +
+                            "-fx-background-radius: 12;" +
+                            "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 10, 0, 0, 2);" +
+                            "-fx-border-width: 3;"
+            );
+
+
+            Label nombre = new Label(cliente.get("nombre").getAsString());
+            nombre.setStyle(
+                    "-fx-font-size: 16px;" +
+                            "-fx-font-weight: bold;" +
+                            "-fx-text-fill: #1f2937;"
+            );
+
+            Label apellidos = new Label(cliente.get("apellidos").getAsString());
+
+            apellidos.setStyle(
+                    "-fx-font-size: 16px;" +
+                            "-fx-font-weight: bold;" +
+                            "-fx-text-fill: #1f2937;"
+            );
+            nombreApe.getChildren().addAll(nombre, apellidos);
+            nombreApe.setSpacing(10);
+            VBox info = new VBox(3);
+
+            Label telefono = new Label(cliente.get("telefono").getAsString());
+            Label correo = new Label(cliente.get("correo").getAsString());
+            Label direccion = new Label(cliente.get("direccion").getAsString());
+            telefono.setStyle("-fx-text-fill: #6b7280;");
+            correo.setStyle("-fx-text-fill: #6b7280;");
+
+
+            // toda la targeta junta
+            info.getChildren().addAll(nombreApe, telefono,direccion, correo);
+
+
+
+            Region spacer = new Region();
+            HBox.setHgrow(spacer, Priority.ALWAYS);
+
+
+            Button borrarBTN = new Button();
+            FontIcon icon = new FontIcon("fas-trash-alt");
+            FontIcon tlf = new FontIcon("fas-phone");
+            icon.setIconSize(16);
+
+            borrarBTN.setGraphic(icon);
+            borrarBTN.setStyle(
+                    "-fx-background-color: transparent;" +
+                            "-fx-cursor: hand;"
+            );
+
+
+            tarjeta.getChildren().addAll(info, spacer, borrarBTN);
+
+
+            todosClientes.getChildren().add(tarjeta);
         }
     }
 }

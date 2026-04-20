@@ -4,16 +4,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #131E3F;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.interfaz_agenda.mongoController" >
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="568.0" prefWidth="804.0" style="-fx-background-color: #131E3F;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.interfaz_agenda.mongoController">
    <children>
-      <Pane prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: white;">
+      <Pane prefHeight="60.0" prefWidth="800.0" style="-fx-background-color: white;">
          <children>
             <Label layoutX="30.0" layoutY="13.0" prefHeight="35.0" prefWidth="138.0" text="Panel Mongo DB">
                <font>
                   <Font name="Inter Semi Bold" size="15.0" />
                </font></Label>
-            <Button layoutX="472.0" layoutY="18.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Add user" />
+            <Button layoutX="691.0" layoutY="18.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="68.0" text="Add user" />
          </children></Pane>
-      <Pane id="contenedorUsers" fx:id="todosClientes" layoutX="100"  layoutY="124.0" prefHeight="200.0" prefWidth="408.0" style="-fx-background-color: white;" />
+       <ScrollPane fx:id="scrollClientes" hbarPolicy="NEVER" layoutX="50.0" layoutY="140.0" prefHeight="345.0" prefWidth="712.0" vbarPolicy="NEVER">
+
+           <FlowPane fx:id="todosClientes" prefHeight="20.0" prefWidth="614.0" style="-fx-padding: 10;" />
+
+
+       </ScrollPane>
    </children>
 </Pane>
