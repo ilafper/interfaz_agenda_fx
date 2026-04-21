@@ -3,8 +3,11 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 
@@ -15,14 +18,28 @@ import java.awt.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.stage.Stage;
 import org.kordamp.ikonli.javafx.FontIcon;
 public class mongoController implements Initializable {
      @FXML
      private FlowPane todosClientes;
-    //String datosCliente= conectarBBDD.getClientesMongo();
+
+     @FXML
+     private Button crearClienteMongo;
 
 
+    @FXML
+    public void clienteMongoBoton(ActionEvent event){
+        System.out.println("crear cliente mongo bton");
+        try {
+            Stage stage = (Stage) crearClienteMongo.getScene().getWindow();
+            Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/com/example/crear_cliente_mongo.fxml")));
+            stage.setScene(scene);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
+    }
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
 

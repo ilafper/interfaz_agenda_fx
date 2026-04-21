@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.interfaz_agenda.crearMongoController">
+   <Pane prefHeight="56.0" prefWidth="600.0" style="-fx-border-color: black;">
+      <children>
+         <Button fx:id="atrasMongo" onAction="#atrasMongoBoton" layoutX="502.0" layoutY="16.0" mnemonicParsing="false" text="Atras" />
+         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="165.0" layoutY="8.0" prefHeight="42.0" prefWidth="227.0" text="CREAR CLIENTE" textAlignment="RIGHT" textOverrun="CENTER_WORD_ELLIPSIS">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
+         </Label>
+      </children></Pane>
+   <VBox layoutX="165.0" layoutY="74.0" prefHeight="277.0" prefWidth="244.0" style="-fx-padding: 15; -fx-border-color: #131E3F; -fx-border-width: 3; -fx-border-radius: 5;">
+      <children>
+
+         <Label prefHeight="25.0" prefWidth="63.0" text="Nombre:" />
+         <TextField fx:id="nombreMongo" promptText="Nombre" />
+
+         <Label prefHeight="25.0" prefWidth="63.0" text="Apellidos" />
+         <TextField fx:id="apellidosMongo" promptText="Nombre" />
+
+         <Label prefHeight="25.0" prefWidth="63.0" text="Telefono" />
+         <TextField fx:id="telefonoMongo" promptText="Telefono" />
+
+         <Label prefHeight="25.0" prefWidth="63.0" text="Direccion" />
+         <TextField fx:id="direccionMongo" promptText="direccion" />
+
+         <Label prefHeight="25.0" prefWidth="63.0" text="correo" />
+         <TextField fx:id="correoMongo" promptText="correo" />
+
+         <Button fx:id="crearCliente" onAction="#crearClienteMongo" mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" text="Crear Cliente">
+            <VBox.margin>
+               <Insets top="20" />
+            </VBox.margin>
+         </Button>
+      </children>
+   </VBox>
+
+</AnchorPane>
