@@ -23,6 +23,7 @@ public class HelloController {
         try {
             Stage stage = (Stage) vistaMongo.getScene().getWindow();
             Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/com/example/mongo_home.fxml")));
+
             stage.setScene(scene);
         } catch (Exception e) {
             e.printStackTrace();

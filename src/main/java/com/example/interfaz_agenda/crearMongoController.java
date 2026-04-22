@@ -19,7 +19,6 @@ public class crearMongoController {
     @FXML
     private TextField apellidosMongo;
 
-
     @FXML
     private TextField telefonoMongo;
 

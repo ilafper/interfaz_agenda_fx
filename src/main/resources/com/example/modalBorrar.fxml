@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="300.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.interfaz_agenda.modalBorrar">
+   <children>
+      <Label layoutX="47.0" layoutY="48.0" text="¿Estas seguro de borrar este cliente?" />
+      <Button fx:id="siBorrarMon" onAction="#aceptarBorrarMongo" layoutX="47.0" layoutY="118.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" text="Si" />
+      <Button fx:id="noBorrarMon" onAction="#cerrarModal" layoutX="175.0" layoutY="118.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="77.0" text="No" />
+   </children>
+</Pane>

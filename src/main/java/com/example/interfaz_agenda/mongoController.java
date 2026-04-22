@@ -7,30 +7,33 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.*;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.geometry.Insets;
-import java.awt.*;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.kordamp.ikonli.javafx.FontIcon;
-public class mongoController implements Initializable {
-     @FXML
-     private FlowPane todosClientes;
 
-     @FXML
-     private Button crearClienteMongo;
+public class mongoController implements Initializable {
+    @FXML
+    private  FlowPane todosClientes;
+
+    @FXML
+    private Button crearClienteMongo;
 
 
     @FXML
-    public void clienteMongoBoton(ActionEvent event){
+    public void clienteMongoBoton(ActionEvent event) {
         System.out.println("crear cliente mongo bton");
+
         try {
             Stage stage = (Stage) crearClienteMongo.getScene().getWindow();
             Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/com/example/crear_cliente_mongo.fxml")));
@@ -43,6 +46,16 @@ public class mongoController implements Initializable {
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+        cargaClientesMongo();
+
+
+    }
+
+    public void cargaClientesMongo() {
+        // al inciar la vista carga todos los clientes
+        // limpiar el contenido
+        todosClientes.getChildren().clear();
+        // todos los cliente de la bbdd
         String json = conectarBBDD.getClientesMongo();
 
         JsonObject obj = JsonParser.parseString(json).getAsJsonObject();
@@ -59,13 +72,13 @@ public class mongoController implements Initializable {
             HBox tarjeta = new HBox();
             // añadir clase a
             tarjeta.getStyleClass().add("tarjeta");
-            HBox nombreApe= new HBox();
+            HBox nombreApe = new HBox();
             tarjeta.setAlignment(Pos.CENTER_LEFT);
             tarjeta.setSpacing(15);
             tarjeta.setPrefWidth(680);
 
             tarjeta.setStyle(
-                            "-fx-padding: 12;" +
+                    "-fx-padding: 12;" +
                             "-fx-background-color: white;" +
                             "-fx-border-color: #131E3F;" +
                             "-fx-border-radius: 12;" +
@@ -89,6 +102,7 @@ public class mongoController implements Initializable {
                             "-fx-font-weight: bold;" +
                             "-fx-text-fill: #1f2937;"
             );
+
             nombreApe.getChildren().addAll(nombre, apellidos);
             nombreApe.setSpacing(10);
             VBox info = new VBox(3);
@@ -101,8 +115,7 @@ public class mongoController implements Initializable {
 
 
             // toda la targeta junta
-            info.getChildren().addAll(nombreApe, telefono,direccion, correo);
-
+            info.getChildren().addAll(nombreApe, telefono, direccion, correo);
 
 
             Region spacer = new Region();
@@ -111,7 +124,8 @@ public class mongoController implements Initializable {
 
             Button borrarBTN = new Button();
             FontIcon icon = new FontIcon("fas-trash-alt");
-            FontIcon tlf = new FontIcon("fas-phone");
+            // ver si añado icono al telefono
+            //FontIcon tlf = new FontIcon("fas-phone");
             icon.setIconSize(16);
 
             borrarBTN.setGraphic(icon);
@@ -119,12 +133,50 @@ public class mongoController implements Initializable {
                     "-fx-background-color: transparent;" +
                             "-fx-cursor: hand;"
             );
-
+            borrarBTN.setUserData(cliente.get("code_user").getAsString());
 
             tarjeta.getChildren().addAll(info, spacer, borrarBTN);
 
 
             todosClientes.getChildren().add(tarjeta);
+
+            borrarBTN.setOnAction(e -> {
+
+                Button b = (Button) e.getSource();
+                String code_user = (String) b.getUserData();
+                System.out.println(code_user);
+                // // obtener controller del modal
+                //        ModalBorrarController controller = loader.getController();
+                //
+                //        //  EL DATO
+                //        controller.setCodeUser(code_user);
+                try {
+                    FXMLLoader loader = new FXMLLoader(
+                            mongoController.class.getResource("/com/example/modalBorrar.fxml")
+                    );
+
+                    Parent root = loader.load();
+                    // coger el controllador del modal
+
+                    modalBorrar controller = loader.getController();
+                    // pasarlo al controllador del modal
+                    controller.setCode_user(code_user);
+
+                    controller.setFuncionMongoController(this);
+                    Stage modal = new Stage();
+                    modal.setScene(new Scene(root));
+
+                    modal.initModality(Modality.APPLICATION_MODAL);
+
+                    modal.setTitle("Modal Borrar");
+
+                    modal.showAndWait();
+
+                } catch (Exception ex) {
+                    ex.printStackTrace();
+                }
+
+            });
         }
     }
 }
