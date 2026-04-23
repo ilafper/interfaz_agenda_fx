@@ -5,18 +5,18 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.interfaz_agenda.crearMongoController">
-   <Pane prefHeight="56.0" prefWidth="600.0" style="-fx-border-color: black;">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #131E3F;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.interfaz_agenda.crearMongoController">
+   <Pane prefHeight="56.0" prefWidth="600.0" style="-fx-border-color: black; -fx-background-color: white;">
       <children>
-         <Button fx:id="atrasMongo" onAction="#atrasMongoBoton" layoutX="502.0" layoutY="16.0" mnemonicParsing="false" text="Atras" />
-         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="165.0" layoutY="8.0" prefHeight="42.0" prefWidth="227.0" text="CREAR CLIENTE" textAlignment="RIGHT" textOverrun="CENTER_WORD_ELLIPSIS">
+         <Button fx:id="atrasMongo" layoutX="502.0" layoutY="16.0" mnemonicParsing="false" onAction="#atrasMongoBoton" style="-fx-background-color: #131E3F; -fx-text-fill: white;" text="Atras" />
+         <Label alignment="CENTER" contentDisplay="CENTER" layoutX="164.0" layoutY="11.0" prefHeight="34.0" prefWidth="227.0" text="CREAR CLIENTE" textAlignment="RIGHT" textOverrun="CENTER_WORD_ELLIPSIS">
             <font>
                <Font name="System Bold" size="12.0" />
             </font>
          </Label>
 
       </children></Pane>
-   <VBox layoutX="165.0" layoutY="74.0" prefHeight="277.0" prefWidth="244.0" style="-fx-padding: 15; -fx-border-color: #131E3F; -fx-border-width: 3; -fx-border-radius: 5;">
+   <VBox layoutX="165.0" layoutY="74.0" prefHeight="294.0" prefWidth="244.0" style="-fx-padding: 15; -fx-border-color: none; -fx-border-width: 3; -fx-border-radius: 5; -fx-background-color: white;">
       <children>
 
          <Label prefHeight="25.0" prefWidth="63.0" text="Nombre:" />
@@ -34,10 +34,13 @@
          <Label prefHeight="25.0" prefWidth="63.0" text="correo" />
          <TextField fx:id="correoMongo" promptText="correo" />
 
-         <Button fx:id="crearCliente" onAction="#crearClienteMongo" mnemonicParsing="false" prefHeight="25.0" prefWidth="214.0" text="Crear Cliente">
+         <Button fx:id="crearCliente" mnemonicParsing="false" onAction="#crearClienteMongo" prefHeight="38.0" prefWidth="214.0" style="-fx-background-color: #131E3F; -fx-text-fill: white;" text="Crear Cliente">
             <VBox.margin>
                <Insets top="20" />
             </VBox.margin>
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font>
          </Button>
       </children>
    </VBox>
